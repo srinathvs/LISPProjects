@@ -28,18 +28,18 @@ Hint: Start developing by testing (Hanoi 1) and (Hanoi 2).
 
 |#
 
- <-- You will need to remove the comment designator here and at the bottom.
+
 (defun hanoi-1(n from to spare)
   (cond
     ((> n 0) ;; Recursion base case is when your job is to move a tower of zero disks.
-     (hanoi-1 (- n 1) ?x ?y ?z)  ;; Otherwise move a 1-disk-smaller tower where you are NOT going.
+     (hanoi-1 (- n 1) from spare to)  ;; Otherwise move a 1-disk-smaller tower where you are NOT going.
      (format t "Move disk from ~s ==> ~s~&" from to) ;; Move the bottom disk where you ARE going.
-     (hanoi-1 (- n 1) ?p ?q ?r) ;; Move the smaller tower back on top of it.
+     (hanoi-1 (- n 1) spare to from) ;; Move the smaller tower back on top of it.
      )
     )
   )
 
-;;; Assume you are starting on tower A and going to tower C
+
 (defun hanoi (n)
   (format t "~%Moving ~s disk~p from tower A to tower C:~%" n n) ; ~p forms plural s
   (hanoi-1 n 'A 'C 'B)
