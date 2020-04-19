@@ -1,0 +1,105 @@
+Is this thing a mammal? [y/n]
+y
+it barks? [y/n]
+n
+does it meow? [y/n]
+y
+Is it a CAT? [y/n]
+y
+I thought so
+
+Would you like to play again? [y/n]
+y
+Is this thing a mammal? [y/n]
+y
+it barks? [y/n]
+y
+Is it a DOG? [y/n]
+y
+I can hear your tormented soul crying about this resounding loss to my superior intellect
+
+Would you like to play again? [y/n]
+y
+Is this thing a mammal? [y/n]
+n
+Does it have warts over its skin? [y/n]
+y
+Is it a TOAD? [y/n]
+n
+Fooey, I will get you next time
+
+What was it [type one word]?
+frog
+Type a question that is true for FROG and false for TOAD [in quotes]:
+
+"does it resemble a toad but have slimy moist skin"
+
+Would you like to play again? [y/n]
+y
+Is this thing a mammal? [y/n]
+y
+it barks? [y/n]
+n
+does it meow? [y/n]
+n
+Is a beast of bruden? [y/n]
+y
+Is it a DONKEY? [y/n]
+y
+Beating you makes my inhumane heart beat faster, I think I am addicted now.
+
+Would you like to play again? [y/n]
+y
+Is this thing a mammal? [y/n]
+n
+Does it have warts over its skin? [y/n]
+n
+Does it hiss? [y/n]
+y
+Is it a SNAKE? [y/n]
+y
+I won. Fool, you came here to test me? you? test? me???
+
+Would you like to play again? [y/n]
+y
+Is this thing a mammal? [y/n]
+y
+it barks? [y/n]
+n
+does it meow? [y/n]
+n
+Is a beast of bruden? [y/n]
+n
+does it stay in the desert? [y/n]
+y
+Is it a CAMEL? [y/n]
+n
+A loss? No human, I was only checking if you knew the answer. I!!!never!!!LOSEEE!!!!!
+
+What was it [type one word]?
+lama
+Type a question that is true for LAMA and false for CAMEL [in quotes]:
+
+"Does it have a vile spit"
+
+Would you like to play again? [y/n]
+y
+Is this thing a mammal? [y/n]
+y
+it barks? [y/n]
+n
+does it meow? [y/n]
+n
+Is a beast of bruden? [y/n]
+n
+does it stay in the desert? [y/n]
+n
+Does it have a trunk and tusks? [y/n]
+y
+Is it a ELEPHANT? [y/n]
+y
+Beating you makes my inhumane heart beat faster, I think I am addicted now.
+
+Would you like to play again? [y/n]
+n
+Thanks for playing. [Use (saveit "fname.lisp") if you want to save your data.]

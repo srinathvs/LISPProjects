@@ -163,6 +163,7 @@ Add your extensive COMMENTS about what the program is doing in each section of t
 ;;; (format... )
 
 (format t "~%This is Srinath's Animal Learning program~%")
+;;;Base intensity value, that the program initializes with. This value is used to determine the personality of the bot
 (setf *intensity* 5)
 ;;; ABOVE IS WHERE YOU ADD CODE TO PRINT YOUR NAME USING THE FORMAT COMMAND.
 
@@ -184,8 +185,8 @@ Add your extensive COMMENTS about what the program is doing in each section of t
 
 (setq *depressed-win-responses*
       (list "I won this battle, but the war? I cannot predict any such favourable outcomes for myself"
-            "Life has ups and downs, today I might be up, the higher I go, the harsher the fall"
-            "I....... won ? That cant be true, it must just be me being delusional again....."))
+            "Life has ups and downs, today I might be up, the higher I go, the more painful the fall. Oh yes, I am going down anytime now."
+            "I....... won ? That cant be true, it must be me being delusional again....."))
 
 (setq *depressed-lose-responses*
       (list "Another loss ...... I tried to fight it, run from it, but destiny still arrived"
@@ -201,8 +202,20 @@ Add your extensive COMMENTS about what the program is doing in each section of t
             "A loss? No human, I was only checking if you knew the answer. I!!!never!!!LOSEEE!!!!!"
             "Dont you dare say it, I know what you think of me, I am a lot of things, but I am no loser. I do not accept this. You slander me."))
 
+;;;This is the function that decides the personality of the animal guesser based on the intensity it feels
+;;;Winning more stokes its ego and brings out its manic personality, going on a losing spree makes it depressed
+(defun setto-Intensity ()
+(cond ((>= *intensity* 7) (make-manic-personality))
+  ((<= *intensity* 3) (make-depressed-personality))
+ (t (make-normal-personality))
+  ))
+
+
+
 
 (defun gloat ()
+(incf *intensity*)
+ (setto-Intensity)
   (let ((i (random (length *win-responses*))))
     (format t "~A~%" (nth i *win-responses*))))
 
@@ -211,7 +224,11 @@ Add your extensive COMMENTS about what the program is doing in each section of t
        "Rats, I thought I knew that one"
        "Fooey, I will get you next time"))
 
+
+
 (defun i-lost ()
+ (decf *intensity*)
+ (setto-Intensity)
   (let ((i (random (length *lose-responses*))))
     (format t "~A~%" (nth i *lose-responses*))))
 
