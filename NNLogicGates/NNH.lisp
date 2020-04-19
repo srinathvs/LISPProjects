@@ -49,7 +49,8 @@ CDE: For generating unique neurons, use defstruct with accessors next time?
   (setf threshold (random 3))
   (setf w1 (random 3))
   (setf w2 (random 3))
-  (format t "T: ~s, W1: ~s W2: ~s~%" threshold w1 w2))
+  (format t "T: ~s, W1
+: ~s W2: ~s~%" threshold w1 w2))
 
 (defun notgate (val)
   (let ((summ 0))
@@ -123,11 +124,35 @@ CDE: For generating unique neurons, use defstruct with accessors next time?
 
 (defun train4nor ()
   ;; Your NOR code goes here
-  )
+  (let ((rval nil))
+    (dotimes (junk 30)
+      (let ((old-threshold threshold)(old-W1 w1)(old-w2 w2))
+        (train-gate 0 0 1)
+        (train-gate 0 1 0)
+        (train-gate 1 0 0)
+        (train-gate 1 1 0)
+        (format t "T: ~s, ~cW1: ~s ~cW2: ~s~%" threshold #\tab w1 #\tab w2)
+        (when (and (equal old-threshold threshold) (equal old-w1 w1) (equal old-w2 w2)) ; Training complete
+          (setf rval t)
+          (return))))
+    rval))
+
 
 (defun train4nand ()
   ;; Your NAND code goes here
-  )
+  (let ((rval nil))
+    (dotimes (junk 30)
+      (let ((old-threshold threshold)(old-W1 w1)(old-w2 w2))
+        (train-gate 0 0 0)
+        (train-gate 0 1 1)
+        (train-gate 1 0 1)
+        (train-gate 1 1 1)
+        (format t "T: ~s, ~cW1: ~s ~cW2: ~s~%" threshold #\tab w1 #\tab w2)
+        (when (and (equal old-threshold threshold) (equal old-w1 w1) (equal old-w2 w2)) ; Training complete
+          (setf rval t)
+          (return))))
+    rval))
+
 
 
 (new-rand) ; make a new random-valued neuron
