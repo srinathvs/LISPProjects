@@ -1,0 +1,118 @@
+(new-rand) to get random values for your neuron
+(notgate n) (gate n n) where n is 0/1 to see current logic.
+(train4NOT) (train4AND) (train4OR) are the training functions.
+(help) to replay this list.
+(change-epsilon value) to change the learning rate..
+
+(notgate 0)
+1
+(notgate 1)
+1
+(train4not)
+T: 0.25, W1: 1.75
+T: 0.25, W1: 1.5
+T: 0.25, W1: 1.25
+T: 0.25, W1: 1.0
+T: 0.25, W1: 0.75
+T: 0.25, W1: 0.5
+T: 0.25, W1: 0.25
+T: 0.25, W1: 0.0
+T: 0.25, W1: -0.25
+T: 0.0, W1: -0.25
+T: 0.0, W1: -0.25
+T: 0.0, W1: -0.25
+T: 0.0, W1: -0.25
+T: 0.0, W1: -0.25
+T: 0.0, W1: -0.25
+T: 0.0, W1: -0.25
+T: 0.0, W1: -0.25
+T: 0.0, W1: -0.25
+T: 0.0, W1: -0.25
+T: 0.0, W1: -0.25
+NIL
+
+(notgate 0)
+1
+(notgate 1)
+0
+
+(new-rand)
+T: 1, W1
+: 0 W2: 1
+NIL
+
+(change-epsilon .5)
+0.5
+
+(notgate 0)
+0
+
+(notgate 1)
+0
+
+(train4not)
+T: 0.5, W1: 0.0
+T: 0.5, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+T: 0.0, W1: -0.5
+NIL
+
+(notgate 0)
+1
+
+(notgate 1)
+0
+
+(new-rand)
+T: 1, W1
+: 2 W2: 1
+NIL
+
+(notgate 0)
+0
+
+(notgate 1)
+1
+
+(change-epsilon .75)
+0.75
+
+(train4not)
+T: 1.0, W1: 1.25
+T: 1.0, W1: 0.5
+T: 1.0, W1: -0.25
+T: 0.25, W1: -0.25
+T: 0.25, W1:T: -0.5, 	W1: -0.75 	W2: 1.0
+T: -0.5, 	W1: -0.5 	W2: 1.0
+T: -0.5, 	W1: -0.25 	W2: 1.0
+T: -0.25, 	W1: -0.25 	W2: 1.0
+T: -0.25, 	W1: 0.0 	W2: 1.0
+T: 0.0, 	W1: 0.0 	W2: 1.0
+T: 0.0, 	W1: 0.25 	W2: 1.0
+T: 0.25, 	W1: 0.25 	W2: 1.0
+T: 0.25, 	W1: 0.25 	W2: 1.0
+-1.0
+T: -0.5, W1: -1.0
+NIL
+
+(notgate 0)
+1
+
+(notgate 1)
+0

@@ -31,7 +31,7 @@ has run, the variables go away.
   (format t "(train4NOT) (train4AND) (train4OR) are the training functions.~%")
   (format t "(help) to replay this list.~%")
  (format t "(change-epsilon value) to change the learning rate..~%"))
-  )
+
 (help)
 
 #| THREE GLOBAL VALUES W1, W2, THRESHOLD, representing a neuron.
@@ -46,7 +46,7 @@ CDE: For generating unique neurons, use defstruct with accessors next time?
 (setf threshold 2) (setf w1 0) (setf w2 0) ; These define the neuron input and output
 (setf epsilon 0.25) ; Use as a the learning constant, but can experiment with this value.
 
-(defun change-epsilon (val)
+(defun change-epsilon (val);;function to change the learning rate at runtime.
   (setf epsilon val))
 
 
@@ -59,7 +59,7 @@ CDE: For generating unique neurons, use defstruct with accessors next time?
 
 (defun notgate (val)
   (let ((summ 0))
-    (setf summ (* val w1))
+    (setf summ (* val w1));Using this temp variable to decide the returning value from the gate function as val* weight(activation function of the neuron)
     (if (>= summ threshold) 1 0)))
 
 (defun train4NOT ()
