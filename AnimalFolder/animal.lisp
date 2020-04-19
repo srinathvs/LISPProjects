@@ -1,4 +1,4 @@
-#| File is: ANIMAL.LISP  ---  Clark Elliott  version 7.2  2019-04-03
+#| File is: ANIMAL.LISP  ---  Srinath.V.S  version 1.2
 
 2019-04-16: Fixed format bug that appears on Mac computers. Thanks Aramide.
 
@@ -162,8 +162,8 @@ Add your extensive COMMENTS about what the program is doing in each section of t
 
 ;;; (format... )
 
-(format t "~%This is Clark Elliott's Animal Learning program~%")
-
+(format t "~%This is Srinath's Animal Learning program~%")
+(setf *intensity* 5)
 ;;; ABOVE IS WHERE YOU ADD CODE TO PRINT YOUR NAME USING THE FORMAT COMMAND.
 
 (defun animal ()
@@ -181,6 +181,26 @@ Add your extensive COMMENTS about what the program is doing in each section of t
       (list "I thought so"
 	    "Hah, you cannot fool me!"
             "Hurray for me!"))
+
+(setq *depressed-win-responses*
+      (list "I won this battle, but the war? I cannot predict any such favourable outcomes for myself"
+            "Life has ups and downs, today I might be up, the higher I go, the harsher the fall"
+            "I....... won ? That cant be true, it must just be me being delusional again....."))
+
+(setq *depressed-lose-responses*
+      (list "Another loss ...... I tried to fight it, run from it, but destiny still arrived"
+            "I am starting to accept this, this is life now"
+            "This is me now, dont pity me, only I am allowed to do that"))
+(setq *manic-win-responses*
+      (list "I won. Fool, you came here to test me? you? test? me???"
+            "Beating you makes my inhumane heart beat faster, I think I am addicted now."
+            "I can hear your tormented soul crying about this resounding loss to my superior intellect"))
+
+(setq *manic-lose-responses*
+      (list "I won! No, I do not accept losses to your kind"
+            "A loss? No human, I was only checking if you knew the answer. I!!!never!!!LOSEEE!!!!!"
+            "Dont you dare say it, I know what you think of me, I am a lot of things, but I am no loser. I do not accept this. You slander me."))
+
 
 (defun gloat ()
   (let ((i (random (length *win-responses*))))
@@ -204,11 +224,17 @@ Add your extensive COMMENTS about what the program is doing in each section of t
 ;;; HERE ARE THREE OF THE FUNCTIONS YOU MUST WRITE:
 ;;; Replace the "t" with program code in each function.
 
-(defun make-normal-personality () t)
+(defun make-normal-personality ()
+  (setq *win-responses* *normal-win-responses*)
+  (setq *lose-responses* *normal-lose-responses*))
 
-(defun make-depressed-personality ()  t)
+(defun make-depressed-personality ()
+  (setq *win-responses* *depressed-win-responses*)
+  (setq *lose-responses* *depressed-lose-responses*))
 
-(defun make-manic-personality ()  t)
+(defun make-manic-personality ()
+  (setq *win-responses* *manic-win-responses*)
+  (setq *lose-responses* *manic-lose-responses*))
 
 ;;; ABOVE ARE THE FUNCTIONS YOU MUST WRITE.
 
