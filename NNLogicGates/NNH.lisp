@@ -30,6 +30,7 @@ has run, the variables go away.
   (format t "(notgate n) (gate n n) where n is 0/1 to see current logic.~%")
   (format t "(train4NOT) (train4AND) (train4OR) are the training functions.~%")
   (format t "(help) to replay this list.~%")
+ (format t "(change-epsilon value) to change the learning rate..~%"))
   )
 (help)
 
@@ -44,6 +45,10 @@ CDE: For generating unique neurons, use defstruct with accessors next time?
 
 (setf threshold 2) (setf w1 0) (setf w2 0) ; These define the neuron input and output
 (setf epsilon 0.25) ; Use as a the learning constant, but can experiment with this value.
+
+(defun change-epsilon (val)
+  (setf epsilon val))
+
 
 (defun new-rand () ; Create a new neuron with random values on the "synapses"
   (setf threshold (random 3))
@@ -107,14 +112,14 @@ CDE: For generating unique neurons, use defstruct with accessors next time?
     rval)) ; Return T if training is complete, or nil because it is not.
 
 (defun train4or ()
-  (let ((rval nil))
-    (dotimes (junk 30)
-      (let ((old-threshold threshold)(old-W1 w1)(old-w2 w2))
+  (let ((rval nil));Inital return value is set to nil and only changed to true when training is completed
+    (dotimes (junk 30); Maximum training epochs
+      (let ((old-threshold threshold)(old-W1 w1)(old-w2 w2));Saving init values into temp varialbles
         (train-gate 0 0 0)
         (train-gate 0 1 1)
         (train-gate 1 0 1)
         (train-gate 1 1 1)
-        (format t "T: ~s, ~cW1: ~s ~cW2: ~s~%" threshold #\tab w1 #\tab w2)
+        (format t "T: ~s, ~cW1: ~s ~cW2: ~s~%" threshold #\tab w1 #\tab w2);Printing values of thresholds and weights post training
         (when (and (equal old-threshold threshold) (equal old-w1 w1) (equal old-w2 w2)) ; Training complete
           (setf rval t)
           (return))))
@@ -124,14 +129,14 @@ CDE: For generating unique neurons, use defstruct with accessors next time?
 
 (defun train4nor ()
   ;; Your NOR code goes here
-  (let ((rval nil))
-    (dotimes (junk 30)
-      (let ((old-threshold threshold)(old-W1 w1)(old-w2 w2))
+  (let ((rval nil));Inital return value is set to nil and only changed to true when training is completed
+    (dotimes (junk 30); Maximum training epochs
+      (let ((old-threshold threshold)(old-W1 w1)(old-w2 w2));Saving init values into temp varialbles
         (train-gate 0 0 1)
         (train-gate 0 1 0)
         (train-gate 1 0 0)
         (train-gate 1 1 0)
-        (format t "T: ~s, ~cW1: ~s ~cW2: ~s~%" threshold #\tab w1 #\tab w2)
+        (format t "T: ~s, ~cW1: ~s ~cW2: ~s~%" threshold #\tab w1 #\tab w2);Printing values of thresholds and weights post training
         (when (and (equal old-threshold threshold) (equal old-w1 w1) (equal old-w2 w2)) ; Training complete
           (setf rval t)
           (return))))
@@ -140,14 +145,14 @@ CDE: For generating unique neurons, use defstruct with accessors next time?
 
 (defun train4nand ()
   ;; Your NAND code goes here
-  (let ((rval nil))
-    (dotimes (junk 30)
+  (let ((rval nil));Inital return value is set to nil and only changed to true when training is completed
+    (dotimes (junk 30); Maximum training epochs
       (let ((old-threshold threshold)(old-W1 w1)(old-w2 w2))
-        (train-gate 0 0 0)
+        (train-gate 0 0 1)
         (train-gate 0 1 1)
         (train-gate 1 0 1)
-        (train-gate 1 1 1)
-        (format t "T: ~s, ~cW1: ~s ~cW2: ~s~%" threshold #\tab w1 #\tab w2)
+        (train-gate 1 1 0)
+        (format t "T: ~s, ~cW1: ~s ~cW2: ~s~%" threshold #\tab w1 #\tab w2);Printing values of thresholds and weights post training
         (when (and (equal old-threshold threshold) (equal old-w1 w1) (equal old-w2 w2)) ; Training complete
           (setf rval t)
           (return))))
