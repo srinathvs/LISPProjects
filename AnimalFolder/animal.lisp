@@ -167,7 +167,7 @@ Add your extensive COMMENTS about what the program is doing in each section of t
 (setf *intensity* 5)
 ;;; ABOVE IS WHERE YOU ADD CODE TO PRINT YOUR NAME USING THE FORMAT COMMAND.
 
-(defun animal ()
+(defun animal ();;the main function that gets called while playing this animal guessing game.
   (loop
    (run-node 'thing)
     (when (not (ask-play-again))
@@ -197,7 +197,7 @@ Add your extensive COMMENTS about what the program is doing in each section of t
             "Beating you makes my inhumane heart beat faster, I think I am addicted now."
             "I can hear your tormented soul crying about this resounding loss to my superior intellect"))
 
-(setq *manic-lose-responses*
+(setq *manic-lose-responses*;;Manic Responses
       (list "I won! No, I do not accept losses to your kind"
             "A loss? No human, I was only checking if you knew the answer. I!!!never!!!LOSEEE!!!!!"
             "Dont you dare say it, I know what you think of me, I am a lot of things, but I am no loser. I do not accept this. You slander me."))
