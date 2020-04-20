@@ -213,7 +213,7 @@ Add your extensive COMMENTS about what the program is doing in each section of t
 
 
 
-(defun gloat ()
+(defun gloat ();;Fucntion is called when the player loses provoides corresponsing response
 (incf *intensity*)
  (setto-Intensity)
   (let ((i (random (length *win-responses*))))
@@ -226,7 +226,7 @@ Add your extensive COMMENTS about what the program is doing in each section of t
 
 
 
-(defun i-lost ()
+(defun i-lost ();;function is called when the bot loses
  (decf *intensity*)
  (setto-Intensity)
   (let ((i (random (length *lose-responses*))))
@@ -261,7 +261,7 @@ Add your extensive COMMENTS about what the program is doing in each section of t
 ;;; =============================================================
 
 
-(defun saveit (filename)
+(defun saveit (filename);; Function that saves the new nodes
   (if (stringp filename)
       (let ((saver (open filename :direction :output
 			 :if-exists :supersede)))
@@ -272,14 +272,14 @@ Add your extensive COMMENTS about what the program is doing in each section of t
         (close saver)) ; note SHOULD use with-open-file, not in XLISP
       (format t "Sorry, filename must be a string~%")))
 
-(defvar *nodes*) (setq *nodes* nil)
-(defvar *node-count*) (setq *node-count* 1)
-(defun node-count () (incf *node-count*))
+(defvar *nodes*) (setq *nodes* nil);;Defining and setting nodes
+(defvar *node-count*) (setq *node-count* 1);;Defining and setting node - count
+(defun node-count () (incf *node-count*));;Increasing the node
 
 (defun node-name (n)       (first n))
-(defun node-question (n)   (second n))
-(defun node-yes-branch (n) (third n))
-(defun node-no-branch (n)  (fourth n))
+(defun node-question (n)   (second n));;Question to be assessed
+(defun node-yes-branch (n) (third n));;Animal in yes
+(defun node-no-branch (n)  (fourth n));;Animal if no
 
 (defun defnode (name question yes-branch no-branch)
   (setq *nodes*
@@ -316,16 +316,16 @@ Add your extensive COMMENTS about what the program is doing in each section of t
   (format t "~a? [y/n]~%" question)
   (read))
 
-(defun add-node (answer-tried)
+(defun add-node (answer-tried);;When the bot does not know the answer, this function is called
   (let ((new-thing nil) (new-node-name (node-count)) (new-node nil))
-    (i-lost)
+    (i-lost);;Admits defeat
     (format t "~%What was it [type one word]?~%")
     (setq new-thing (read))
     (format t
 	    "Type a question that is true for ~s and false for ~s [in quotes]:~%~%"
 	    new-thing answer-tried)
     (defnode new-node-name (read) new-thing answer-tried) ; read-line problem
-    (list new-node-name)))
+    (list new-node-name)));;Keeps new addition as a node
 
 (defun ask-play-again ()
   (format t "~%Would you like to play again? [y/n]~%")
