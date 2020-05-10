@@ -331,7 +331,7 @@ Add your extensive COMMENTS about what the program is doing in each section of t
   (format t "~%Would you like to play again? [y/n]~%")
   (equal (read) 'y))
 
-(defun guess (name)
+(defun guess (name);;Makes a guess based on its current nodes
   (format t "Is it a ~s? [y/n]~%" name)
   (equal (read) 'y))
 
